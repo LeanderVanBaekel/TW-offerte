@@ -1,0 +1,230 @@
+<!doctype html>
+
+<html lang="nl">
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>Offerte | Taartenwinkel.nl</title>
+		<meta name="description" content="Taartenwinkel.nl">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="../css/style.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+		<script>
+
+		</script>
+
+
+	</head>
+	<body>
+
+		<div class="nav">
+
+			<div class="list hidden">
+				<ul>
+					<a href="#header"><li><img src="../images/logo-wit.png" alt="taartenwinkel logo"></li></a>
+					<a href="#intro"><li><i class="fa fa-envelope"></i> Inleiding</li></a>
+					<a href="#about"><li><i class="fa fa-users"></i> Over ons</li></a>
+					<a href="#reference"><li><i class="fa fa-star"></i> Referenties</li></a>
+					<a href="#offerte"><li><i class="fa fa-eur"></i> Uw offerte</li></a>
+				</ul>
+			</div>
+
+			<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
+
+		</div>
+
+		<div class="container">
+
+			<% if (data.project["image"]) { %>
+				<div class="section" id="header" style="background-image: url(../data/afbeeldingen/<%= data.project.image %>)">
+			<% } else { %>
+				<div class="section" id="header">
+			<% } %>
+
+				<div class="logo" >
+					<img src="../images/logo-wit.png" alt="Taartenwinkel.nl logo">
+				</div>
+				
+
+				<h1>Úw moment</h1>
+
+			</div>
+
+			<div class="section" id="intro">
+				<div class="personalText">
+					<p>
+						<%- data.project.personalText %>
+					</p>
+
+					<p>Met vriendelijke groet,</p>
+					<img src="../images/<%=data.project.employee%>.png">
+				</div>
+			</div>
+
+			<div class="section" id="about">
+
+
+				<h1>Wat kunnen wij voor u betekenen?</h1>
+				<div class="w5"></div>
+				<div class="w30 about-section">
+					<h2>Vandaag besteld morgen in huis</h2>
+					<div class="icon">
+						<i class="fa fa-5x fa-truck"></i>
+					</div>
+					<p>Als je vandaag voor 5 uur een bestelling plaatst bij taartenwinkel.nl dan kan hij de volgende dag al geleverd worden!</p>
+				</div>
+				<div class="w30 about-section">
+					<h2>Wereldwijd bezorgen</h2>
+					<div class="icon">
+						<i class="fa fa-5x fa-globe"></i>
+					</div>
+					<p>Als je vandaag voor 5 uur een bestelling plaatst bij taartenwinkel.nl dan kan hij de volgende dag al geleverd worden!</p>
+				</div>
+				<div class="w30 test about-section">
+					<h2>Unieke taarten</h2>
+					<div class="icon">
+						<i class="fa fa-5x fa-birthday-cake"></i>
+					</div>
+					<p>Als je vandaag voor 5 uur een bestelling plaatst bij taartenwinkel.nl dan kan hij de volgende dag al geleverd worden!</p>
+				</div>
+				<div class="w5"></div>
+
+			</div>
+
+			<div class="section" id="reference">
+				<blockquote>Uitstekende service en heerlijke taart!</blockquote>
+				<span class="quote-name">Douwe Egberts</span>
+			</div>
+
+			<div class="section" id="offerte">
+				<h1>Offerte</h1>
+
+				<div class="offerte-header">
+					<ul>
+						<li><%= data.project.contactPerson %></li>
+						<li><%= data.project.email %></li>
+						<li><%= data.project.phone %></li>
+					</ul>
+					<ul>
+						<li><%= data.project.date %></li>
+						<li><%= data.project.offerteNr %></li>
+					</ul>
+
+
+
+					<% if (data.project.image) { %>
+						<img src="../data/afbeeldingen/<%= data.project.image %>">
+					<% } else { %>
+
+					<% } %>
+					
+
+				</div>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Info</th>
+							<th>Aantal</th>
+							<th>Stukprijs</th>
+							<th>Bedrag</th>
+						</tr>
+					</thead>
+
+					<% data.project.offerte.product.forEach(function(project) { %>
+
+						<tbody>
+							<tr>
+								<td data-label="Product"><%=project.name%></td>
+								<td data-label="Info"><%=project.extra%></td>
+								<td data-label="Aantal"><%=project.amount%></td>
+								<td data-label="Stukprijs" class="euro">€ <%=project.unitPrice%></td>
+								<td data-label="Bedrag" class="euro">€ <%=project.totalPrice%></td>
+							</tr>
+						</tbody>
+
+					<% }); %>		
+					 
+				</table>
+
+
+
+				<table class="klein">
+					<thead>
+						<tr>
+							<th>Subtotaal</th>
+						<tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-label="Subtotaal" class="euro">€ <%= data.project.offerte.subTotal %></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="klein">
+				<% if (data.project.offerte.kortingEuro || data.project.offerte.kortingPercent) { %>
+					<thead>
+						<tr>
+							<th>Korting</th>
+						<tr>
+					</thead>
+						<tbody>
+							<tr>
+								<td data-label="Korting" class="euro">
+									<% if (data.project.offerte.kortingEuro) { %>
+										€ <%= data.project.offerte.kortingEuro %>
+									<% } else { %> 
+										<%= data.project.offerte.kortingPercent %> %
+									<% } %> 
+
+								</td>
+							</tr>
+						</tbody>
+					<% } %>
+				</table>
+				<table class="klein">
+					<thead>
+						<tr>
+							<th>Totaal excl. BTW</th>
+						<tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-label="Totaal excl. BTW" class="euro">€ <%= data.project.offerte.total %></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<% if (data.project.accord == "false") { %>
+
+					<form method="post" action="<%= data.req.baseUrl %>/?offerte=<%=data.project.offerteNr%>" enctype="multipart/form-data">
+					<button class="button" action="submit">
+						Ik ga akoord >
+					</button>
+					</form>
+
+				<% } else { %>
+
+					<p>Bedankt voor uw bestelling, wij nemen zo spoedig mogelijk contact met uw op.</p>
+
+				<% } %>
+
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../script.js"></script>
+	</body>
+</html>

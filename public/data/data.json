@@ -1,0 +1,172 @@
+[
+	{
+		"id": "1",
+		"offerteNr": "2015-061-le",
+		"date": "2015-06-19 10:57:54",
+		"contactPerson": "test",
+		"company": "test",
+		"email": "test",
+		"phone": "000000000",
+		"image": "test-2015-061-le.JPG",
+		"personalText": "test<br><br>test<br>test<br><br>test",
+		"employee": "leander",
+		"offerte": {
+			"product": [
+				{
+					"name": "test",
+					"extra": "test",
+					"amount": "10",
+					"unitPrice": "11.21",
+					"totalPrice": "112.10"
+				},
+				{
+					"name": "rwrs",
+					"extra": "rwar",
+					"amount": "12",
+					"unitPrice": "131",
+					"totalPrice": "1572.00"
+				},
+				{
+					"name": "test4",
+					"extra": "we",
+					"amount": "12",
+					"unitPrice": "1",
+					"totalPrice": "12.00"
+				},
+				{
+					"name": "test3",
+					"extra": "23453",
+					"amount": "221",
+					"unitPrice": "12",
+					"totalPrice": "2652.00"
+				}
+			],
+			"subTotal": "4348.10",
+			"kortingPercent": "10",
+			"total": "3913.29"
+		},
+		"accord": "true"
+	},
+	{
+		"id": "2",
+		"offerteNr": "2015-062-le",
+		"date": "2015-06-19 10:57:54",
+		"contactPerson": "test",
+		"company": "test",
+		"email": "test",
+		"phone": "000000000",
+		"image": "test-2015-061-le.JPG",
+		"personalText": "test<br><br>test<br>test<br><br>test",
+		"employee": "leander",
+		"offerte": {
+			"product": [
+				{
+					"name": "test",
+					"extra": "test",
+					"amount": "10",
+					"unitPrice": "11.21",
+					"totalPrice": "112.10"
+				},
+				{
+					"name": "rwrs",
+					"extra": "rwar",
+					"amount": "12",
+					"unitPrice": "131",
+					"totalPrice": "1572.00"
+				},
+				{
+					"name": "test4",
+					"extra": "we",
+					"amount": "12",
+					"unitPrice": "1",
+					"totalPrice": "12.00"
+				},
+				{
+					"name": "test3",
+					"extra": "23453",
+					"amount": "221",
+					"unitPrice": "12",
+					"totalPrice": "2652.00"
+				}
+			],
+			"subTotal": "4348.10",
+			"kortingPercent": "10",
+			"total": "3913.29"
+		},
+		"accord": "true"
+	},
+	{
+		"id": "3",
+		"offerteNr": "2015-063-le",
+		"date": "2015-06-19 11:05:43",
+		"contactPerson": "test",
+		"company": "tests",
+		"email": "test",
+		"phone": "000000000",
+		"image": "tests-2015-063-le.png",
+		"personalText": "test<br>test<br><br>test<br><br><br>test<br><br><br>test<br><br><br><br><br><br><br>test<br><br><br><br><br><br>test<br><br><br><br><br>test",
+		"employee": "leander",
+		"offerte": {
+			"product": [
+				{
+					"name": "test",
+					"extra": "test",
+					"amount": "1",
+					"unitPrice": "1",
+					"totalPrice": "1.00"
+				},
+				{
+					"name": "test",
+					"extra": "testt",
+					"amount": "22",
+					"unitPrice": "2.2",
+					"totalPrice": "48.40"
+				},
+				{
+					"name": "testt",
+					"extra": "test",
+					"amount": "1234",
+					"unitPrice": "12.12",
+					"totalPrice": "14956.08"
+				},
+				{
+					"name": "testt",
+					"extra": "tteeetst",
+					"amount": "21212",
+					"unitPrice": "1",
+					"totalPrice": "21212.00"
+				}
+			],
+			"subTotal": "36217.48",
+			"kortingEuro": "26000",
+			"total": "10217.48"
+		}
+	},
+	{
+		"id": "4",
+		"offerteNr": "2015-064-le",
+		"date": "2015-06-19 11:11:19",
+		"contactPerson": "test",
+		"company": "test",
+		"email": "test",
+		"phone": "000000000",
+		"image": "test-2015-064-le.jpg",
+		"personalText": "test<br>test<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>test",
+		"employee": "leander",
+		"offerte": {
+			"product": [
+				{
+					"name": "test",
+					"extra": "test",
+					"amount": "121",
+					"unitPrice": "123.12",
+					"totalPrice": "14897.52"
+				}
+			],
+			"subTotal": "14897.52",
+			"kortingEuro": "12.12",
+			"total": "14885.40"
+		},
+		"accord": "true"
+	}
+]

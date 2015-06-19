@@ -1,0 +1,13 @@
+<%= include head %>
+	<form action="<%= data.req.baseUrl + "/login" %>" method="post">
+		<h1>Taartenwinkel.nl / offertes</h1>
+		<fieldset style="text-align:center">
+			<label>Gebruikersnaam: </label><br>
+			<input type="text" name="username" value=""><br>
+			<label>Wachtwoord: </label><br>
+			<input type="password" name="password" value=""><br>
+			<button>Login!</button>
+		</fieldset>
+	</form>
+
+<%= include foot %>

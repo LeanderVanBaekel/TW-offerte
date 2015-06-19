@@ -1,0 +1,100 @@
+<!doctype html>
+
+<html lang="nl">
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+		<title>Offerte | Taartenwinkel.nl</title>
+		<meta name="description" content="Taartenwinkel.nl">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="../css/style.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+		<script>
+
+		</script>
+
+
+	</head>
+	<body>
+
+<div class="nav">
+
+	<div class="list hidden">
+		<ul>
+			<a href="#header"><li><img src="../images/logo-wit.png" alt="taartenwinkel logo"></li></a>
+			<a href="#"><li><i class="fa fa-envelope"></i> Offertes</li></a>
+
+			<% if (req.session.username) { %>
+				<a href="/add">
+					<li>Nieuwe offerte</li>
+				</a>
+				<a href="/accounts">
+					<li>Accounts</li>
+				</a>
+				<a href="/logout">
+					<li>Uitloggen</li>
+				</a>
+			<% } else { %>
+				<a href="/login">
+					<li>Inloggen</li>
+				</a>
+			<% } %>
+		</ul>
+	</div>
+
+	<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
+
+</div>
+
+
+
+
+
+<div class="container">
+	<div id="header" style="background-image: none; height: 5em;">
+		<div class="logo">
+			<img src="../images/logo-wit.png" alt="Taartenwinkel.nl logo">
+		</div>
+	</div>
+
+	<div class="section">
+		
+		<h1>Nieuw Account</h1>
+
+		<form method="post" action="<%= data.req.baseUrl +"/addAccount" %> " enctype="multipart/form-data">
+		<fieldset>
+			<label>Naam: </label><input type="text" name="name" id="name">
+
+			<br>
+
+			<label>Wachtwoord: </label><input type="password" name="password" id="password">
+	
+			<br>
+
+			<label>Handtekening: </label><input type="file" name="image">
+<br>
+
+			<button type="submit">Save</button>
+
+
+		</fieldset>
+		</form>
+	</div>
+</div>
+
+		</div>
+		<script type="text/javascript" src="script.js"></script>
+	</body>
+</html>

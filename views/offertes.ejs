@@ -1,0 +1,86 @@
+<%= include head %>
+
+
+
+<div class="nav">
+
+	<div class="list hidden">
+		<ul>
+			<a href="#header"><li><img src="images/logo-wit.png" alt="taartenwinkel logo"></li></a>
+			<a href="#"><li><i class="fa fa-envelope"></i> Offertes</li></a>
+
+			<% if (req.session.username) { %>
+				<a href="/add">
+					<li>Nieuwe offerte</li>
+				</a>
+				<a href="/accounts">
+					<li>Accounts</li>
+				</a>
+				<a href="/logout">
+					<li>Uitloggen</li>
+				</a>
+			<% } else { %>
+				<a href="/login">
+					<li>Inloggen</li>
+				</a>
+			<% } %>
+		</ul>
+	</div>
+
+	<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
+
+</div>
+
+<div class="container">
+	<div id="header" style="background-image: none; height: 5em;">
+		<div class="logo">
+			<img src="images/logo-wit.png" alt="Taartenwinkel.nl logo">
+		</div>
+	</div>
+
+	<div class="section">
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Datum</th>
+				<th>Offerte Nr.</th>
+				<th>Contactpersoon</th>
+				<th>Bedrijf</th>
+				<th>Akoord</th>
+				<th>Verwijder</th>
+			</tr>
+		</thead>
+
+		<% data.offerteData.forEach(function(offerteData) { %>
+
+			<tbody>
+				<tr>
+					<td data-label="ID"><a href="/offerte/?offerte=<%=offerteData.offerteNr%>"><%=offerteData.id%></a></td>
+					<td data-label="datum"><a href="/offerte/?offerte=<%=offerteData.offerteNr%>"><%=offerteData.date%></a></td>
+					<td data-label="Offerte Nr."><a href="/offerte/?offerte=<%=offerteData.offerteNr%>"><%=offerteData.offerteNr%></a></td>
+					<td data-label="Contactpersoon"><a href="/offerte/?offerte=<%=offerteData.offerteNr%>"><%=offerteData.contactPerson%></a></td>
+					<td data-label="Bedrijf"><a href="/offerte/?offerte=<%=offerteData.offerteNr%>"><%=offerteData.company%></a></td>
+					<td data-label="akoord"><a href="/offerte/?offerte=<%=offerteData.offerteNr%>">
+						<% if (offerteData.accord == "true") { %>
+							<i class="fa fa-check"></i>
+						<% } else { %>
+							<i class="fa fa-times"></i>
+						<% } %>
+					</a></td>
+					<td data-label="verwijder"><a href="/remove/<%=offerteData.offerteNr%>">verwijder</a></td>
+				</tr>
+			</tbody>
+
+		<% }); %>	
+		</table>
+
+	</div>
+
+</div>
+
+
+
+<%= include foot %>

@@ -1,0 +1,74 @@
+<%= include head %>
+
+
+
+<div class="nav">
+
+	<div class="list hidden">
+		<ul>
+			<a href="#header"><li><img src="images/logo-wit.png" alt="taartenwinkel logo"></li></a>
+			<a href="#"><li><i class="fa fa-envelope"></i> Offertes</li></a>
+
+			<% if (req.session.username) { %>
+				<a href="/add">
+					<li>Nieuwe offerte</li>
+				</a>
+				<a href="/accounts">
+					<li>Accounts</li>
+				</a>
+				<a href="/logout">
+					<li>Uitloggen</li>
+				</a>
+			<% } else { %>
+				<a href="/login">
+					<li>Inloggen</li>
+				</a>
+			<% } %>
+		</ul>
+	</div>
+
+	<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
+
+</div>
+
+<div class="container">
+	<div id="header" style="background-image: none; height: 5em;">
+		<div class="logo">
+			<img src="images/logo-wit.png" alt="Taartenwinkel.nl logo">
+		</div>
+	</div>
+
+	<div class="section">
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>naam</th>
+				<th>handtekening</th>
+				<th>Verwijder</th>
+			</tr>
+		</thead>
+
+		<% data.accountData.forEach(function(accountData) { %>
+
+			<tbody>
+				<tr>
+					<td data-label="naam"><%=accountData.u%></td>
+					<td data-label="handtekening"><img src="images/<%=accountData.u%>.png"></td>
+					<td data-label="verwijder"><a href="/remove/account/<%=accountData.u%>">verwijder</a></td>
+				</tr>
+			</tbody>
+
+		<% }); %>	
+		</table>
+
+		<a href="/accounts/addAccount" ><button class="button">Account toevoegen</button></a>
+
+	</div>
+
+</div>
+
+
+
+<%= include foot %>

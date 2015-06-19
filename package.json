@@ -1,0 +1,14 @@
+{
+  "name": "Leander's-portfolio",
+  "version": "1.0.0",
+  "description": "Leander's portfolio",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "~1.13.0",
+    "ejs": "~2.3.1",
+    "express": "~4.12.4",
+    "json-query": "^1.5.0",
+    "multer": "^0.1.8",
+    "session-file-store": "0.0.13"
+  }
+}

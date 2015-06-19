@@ -1,0 +1,157 @@
+<%= include head %>
+
+
+
+<div class="nav">
+
+	<div class="list hidden">
+		<ul>
+			<a href="#header"><li><img src="images/logo-wit.png" alt="taartenwinkel logo"></li></a>
+			<a href="/offertes"><li><i class="fa fa-envelope"></i> Offertes</li></a>
+
+			<% if (req.session.username) { %>
+				<a href="/add">
+					<li>Nieuwe offerte</li>
+				</a>
+				<a href="/logout">
+					<li>Uitloggen</li>
+				</a>
+			<% } else { %>
+				<a href="/login">
+					<li>Inloggen</li>
+				</a>
+			<% } %>
+		</ul>
+	</div>
+
+	<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
+
+</div>
+
+
+
+
+
+<div class="container">
+	<div id="header" style="background-image: none; height: 5em;">
+		<div class="logo">
+			<img src="images/logo-wit.png" alt="Taartenwinkel.nl logo">
+		</div>
+	</div>
+
+	<div class="section">
+		
+		<h1>Nieuwe offerte</h1>
+
+		<form method="post" action="<%= data.req.baseUrl + "/add" %>" enctype="multipart/form-data">
+		<fieldset>
+			<label>id: </label><input type="number" name="id" id="id" value="<%= data.projectId %>" >
+
+			<br>
+
+			<label>offerte nummer: </label><input type="text" name="offerteNr" id="offerteNr" value="<%= data.offerteNrGen %>">
+			<br>
+
+			<label>datum: </label><input type="text" name="date" id="date" value="<%= data.curDate %>">
+
+			<br>
+
+			<label>contact persoon: </label><input type="text" name="contactPerson" id="contactPerson">
+
+			<br>
+
+			<label>bedrijf: </label><input type="text" name="company" id="company">
+
+			<br>
+
+			<label>email: </label><input type="text" name="email" id="email">
+
+			<br>
+
+			<label>Telefoon nummer: </label><input type="text" name="phone" id="phone">
+
+			<br>
+
+			<label>afbeelding product: </label><input type="file" name="image">
+
+			<br>
+
+			<label>brief tekst: </label><textarea type="personalText" rows="3" maxlength="2000" cols="50" name="personalText" value=""></textarea>
+
+			<br>
+
+			<label>medewerker taartenwinkel: </label><input type="text" name="employee" id="employee" value="<%= data.name %>">
+
+			<br>
+
+			<p>offerte</p>
+
+			<br>
+
+			<label>product naam: </label>
+			<label>Extra:</label>
+			<label>product hoeveelheid: </label>
+			<label>prijs per stuk: </label>
+			<label>totale prijs product: </label>
+			<br>
+
+			<input type="text" name="offerteProductName1" id="offerteProductName1">
+			<input type="text" name="offerteProductExtra1" id="offerteProductExtra1">
+			<input type="number" step="1" name="offerteProductAmount1" id="offerteProductAmount1">
+			<input type="number" step="0.01" name="offerteProductUnitPrice1" id="offerteProductUnitPrice1">
+			<input type="number" step="0.01" name="offerteProductTotalPrice1" id="offerteProductTotalPrice1" value="">
+			<br>
+
+			<input type="text" name="offerteProductName2" id="offerteProductName2">
+			<input type="text" name="offerteProductExtra2" id="offerteProductExtra2">
+			<input type="number" step="1" name="offerteProductAmount2" id="offerteProductAmount2">
+			<input type="number" step="0.01" name="offerteProductUnitPrice2" id="offerteProductUnitPrice2">
+			<input type="number" step="0.01" name="offerteProductTotalPrice2" id="offerteProductTotalPrice2" value="">
+			<br>
+
+			<input type="text" name="offerteProductName3" id="offerteProductName3">
+			<input type="text" name="offerteProductExtra3" id="offerteProductextra3">
+			<input type="number" step="1" name="offerteProductAmount3" id="offerteProductAmount3">
+			<input type="number" step="0.01" name="offerteProductUnitPrice3" id="offerteProductUnitPrice3">
+			<input type="number" step="0.01" name="offerteProductTotalPrice3" id="offerteProductTotalPrice3" value="">
+			<br>
+
+			<input type="text" name="offerteProductName4" id="offerteProductName4">
+			<input type="text" name="offerteProductExtra4" id="offerteProductExtra4">
+			<input type="number" step="1" name="offerteProductAmount4" id="offerteProductAmount4">
+			<input type="number" step="0.01" name="offerteProductUnitPrice4" id="offerteProductUnitPrice4">
+			<input type="number" step="0.01" name="offerteProductTotalPrice4" id="offerteProductTotalPrice4" value="">
+			<br>
+
+
+		
+			<label>subtotaal: </label><input type="number" name="offerteSubTotal" step="0.01" id="offerteSubTotal" value="">
+
+			<br>
+
+
+			<label>korting Euro: </label><input type="number" name="offerteKortingEuro" step="0.01" id="offerteKortingEuro" value="">
+
+			<br>
+
+
+			<label>korting Percentage: </label><input type="number" step="0.01" name="offerteKortingPercent" id="offerteKortingPercent" value="">
+
+			<br>
+
+
+			<label>totale prijs offerte: </label><input type="number" step="0.01" name="offerteTotal" id="offerteTotal" value="">
+
+			<br>
+
+
+			<button type="submit">Save</button>
+
+
+		</fieldset>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="offerteScript.js"></script>
+
+<%= include foot %>
