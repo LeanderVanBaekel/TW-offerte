@@ -219,7 +219,7 @@ router.post('/add', function (req, res) {
 		fs.	rename(image.path, fp + "/" + req.body.company + "-" + req.body.offerteNr + "." + image.extension, function (err) {
 			if(err){ console.log("ojee"); }
 		});	
-	}
+
 
 
 	var offerteNrArray = [];
@@ -354,7 +354,7 @@ router.post('/add', function (req, res) {
 		    }
 		}); 
 
-
+	}
 		res.redirect(req.baseUrl + "/offerte/?offerte=" + req.body.offerteNr);
 	}
 });
