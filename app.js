@@ -8,6 +8,9 @@ var FileStore = require('session-file-store')(session);
 
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -40,6 +43,6 @@ app.use('/accounts', accountRouter);
 
 
 
-app.listen(9000, function(){
-  console.log('App listening at http://localhost:9000');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
