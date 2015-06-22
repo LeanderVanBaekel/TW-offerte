@@ -216,9 +216,10 @@ router.post('/add', function (req, res) {
 		var format = path.extname(image);
 		console.log(image);
 		console.log(format);
-		fs.	rename(image.path, fp + "/" + req.body.company + "-" + req.body.offerteNr + "." + image.extension, function (err) {
-			if(err){ console.log("ojee"); }
-		});	
+		fs.renameSync(image.path, fp + "/" + req.body.company + "-" + req.body.offerteNr + "." + image.extension);	
+
+	}
+
 
 
 
@@ -354,7 +355,6 @@ router.post('/add', function (req, res) {
 		    }
 		}); 
 
-	}
 		res.redirect(req.baseUrl + "/offerte/?offerte=" + req.body.offerteNr);
 	}
 });
