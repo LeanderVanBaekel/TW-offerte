@@ -68,10 +68,14 @@ router.get('/add', function (req, res, next) {
 		var id = 0;
 		for (var i = 0; i != siteData.length; i++) {
 			if (siteData[i].id > id) {
-				id = siteData[i].id;
+				id = Math.round(siteData[i].id);;
+				console.log(siteData[i].id);
+				console.log(id);
 			}
 		};
 		id++;
+
+console.log(id);
 
 		var date = new Date();
 		var hour = date.getHours();
