@@ -17,16 +17,24 @@ loadSiteData();
 
 // custom link voor bedrijven
 router.get('/', function (req, res, next) {
+
 	var offerte = req.query.offerte;
 
-	for (var i = 0; i != siteData.length; i++) {
-		if (siteData[i].offerteNr == req.query.offerte) {
-			project = siteData[i];
-		}
-	};
+	if(offerte) {
+		for (var i = 0; i != siteData.length; i++) {
+			if (siteData[i].offerteNr == offerte) {
+				project = siteData[i];
+			}
+		};
 
-	if (!project) { 
-		res.send("Sorry, we hebben uw offerte niet kunnen vinden :(");
+		if (!project) { 
+			res.send("Sorry, we hebben uw offerte niet kunnen vinden :(");
+		}
+	} else {
+
+		if (!project) { 
+			res.send("Sorry, we hebben uw offerte niet kunnen vinden :(");
+		}
 	}
 
 	var data = {
@@ -36,6 +44,8 @@ router.get('/', function (req, res, next) {
 	}
 
 	res.render("./offerte", {data:data});
+	project=0;
+
 });
 
 router.post('/', function (req, res, next) {
