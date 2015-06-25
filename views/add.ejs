@@ -1,41 +1,11 @@
 <%= include head %>
-
-
-
-<div class="nav">
-
-	<div class="list hidden">
-		<ul>
-			<a href="#header"><li><img src="images/logo-wit.png" alt="taartenwinkel logo"></li></a>
-			<a href="/offertes"><li><i class="fa fa-envelope"></i> Offertes</li></a>
-
-			<% if (req.session.username) { %>
-				<a href="/add">
-					<li>Nieuwe offerte</li>
-				</a>
-				<a href="/logout">
-					<li>Uitloggen</li>
-				</a>
-			<% } else { %>
-				<a href="/login">
-					<li>Inloggen</li>
-				</a>
-			<% } %>
-		</ul>
-	</div>
-
-	<span class="menu-button"><p class="menu-icon">&#9776;</p></span>
-
-</div>
-
-
-
+<%= include backend_nav %>
 
 
 <div class="container">
 	<div id="header" style="background-image: none; height: 5em;">
 		<div class="logo">
-			<img src="images/logo-wit.png" alt="Taartenwinkel.nl logo">
+			<img src="../images/logo-wit.png" alt="Taartenwinkel.nl logo">
 		</div>
 	</div>
 
@@ -45,6 +15,8 @@
 
 		<form method="post" action="<%= data.req.baseUrl + "/add" %>" enctype="multipart/form-data">
 		<fieldset>
+			<h3>Algemeen: </h3>
+
 			<label>id: </label><input type="number" name="id" id="id" value="<%= data.projectId %>" >
 
 			<br>
@@ -55,6 +27,12 @@
 			<label>datum: </label><input type="text" name="date" id="date" value="<%= data.curDate %>">
 
 			<br>
+
+		</fieldset>
+		<br>
+		<fieldset>
+
+			<h3>Klant:</h3>
 
 			<label>contact persoon: </label><input type="text" name="contactPerson" id="contactPerson">
 
@@ -69,12 +47,32 @@
 			<br>
 
 			<label>Telefoon nummer: </label><input type="text" name="phone" id="phone">
+			<br>
+		</fieldset>
+			<br>
+		<fieldset>
+			
+			<h3>afbeelding product: </h3>
+			
+			<select name="standardImage" id="standardImage">
+				<option value="petitfours">PetitFours</option>
+				<option value="slagroomtaart">Slagroomtaart</option>
+				<option value="macarons">Macarons</option>
+				<option value="overig">overig</option>
+			</select>
 
 			<br>
 
-			<label>afbeelding product: </label><input type="file" name="image">
+			<p>OF</p>
+
+
+			<input type="file" name="image">
 
 			<br>
+
+		</fieldset>
+		<br>
+		<fieldset>
 
 			<label>brief tekst: </label><textarea type="personalText" rows="3" maxlength="2000" cols="50" name="personalText" value=""></textarea>
 
@@ -82,9 +80,12 @@
 
 			<label>medewerker taartenwinkel: </label><input type="text" name="employee" id="employee" value="<%= data.name %>">
 
-			<br>
 
-			<p>offerte</p>
+			<br>
+		</fieldset>
+			<br>
+		<fieldset>
+			<h3>Offerte: </h3>
 
 			<br>
 
@@ -152,6 +153,6 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript" src="offerteScript.js"></script>
+<script type="text/javascript" src="../offerteScript.js"></script>
 
 <%= include foot %>

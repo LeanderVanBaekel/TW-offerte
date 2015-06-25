@@ -36,6 +36,8 @@ app.use('/', homeRouter);
 var offerteRouter = require('./routes/offerte');
 app.use('/offerte', offerteRouter);
 
+var offertesRouter = require('./routes/offertes');
+app.use('/offertes', offertesRouter);
 
 var accountRouter = require('./routes/accounts');
 app.use('/accounts', accountRouter);

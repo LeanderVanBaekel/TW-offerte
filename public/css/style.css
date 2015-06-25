@@ -134,20 +134,34 @@ h2 {
 
 
 #reference {
-	background-image: url(../images/DE.jpg);
+	width: 100vw;
+	height: 100%;
+	z-index: 99999;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.slide {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100%;
 	background-size: cover !important;
 	-webkit-background-size: cover !important;
 	-moz-background-size: cover !important;
 	-ms-behavior: url(/assets/backgroundsize.htc) !important;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 100%;
 	z-index: 99999;
+	position: relative;
+	top: 0;
 }
+
 
 blockquote {
 	margin: 20vh auto 0 auto;
 	text-align: center;
+	display: inline-block;
 	font-weight: 600;
 	font-size: 4em;
 	max-width: 15em;
@@ -255,15 +269,6 @@ ul {
 
 #intro {
 	width: 100%;
-/*	background-image: url(../images/assortiment.jpg);
-	background-size: cover !important;
-	-webkit-background-size: cover !important;
-	-moz-background-size: cover !important;
-	-ms-behavior: url(/assets/backgroundsize.htc) !important;
-	background-repeat: no-repeat;
-	background-position: center;
-	height: 100%;
-	z-index: 99999;*/
 	background-color: #5385a4;
 }
 
@@ -302,35 +307,11 @@ ul {
 		width: 100%;
 	}
 	.list img {
-	padding: 2em 2% 0 2%;
-	width: 96%;
-}
-}
-
-
-/*.products table, .total table {
-	width: 90%;
-	margin: 0 auto;
-	text-align: left;
-}
-
-.products td, .total td {
-	width: 12.5%;
-}
-
-.euro:before {
-	content: "€ ";
-}
-
-
-@media screen and (max-width: 600px) {
-	table td:before {
-		content: attr(data-label);
-		float: left;
-		text-transform: uppercase;
-		font-weight: bold;
+		padding: 2em 2% 0 2%;
+		width: 96%;
 	}
-}*/
+}
+
 
 
 
@@ -360,10 +341,6 @@ ul {
     letter-spacing: 1px;
   }
 
-
-
-
-
 .klein thead, .klein tbody {
 	display: inline-block;
 }
@@ -386,57 +363,55 @@ ul {
 
 
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
+
+	.klein thead {
+		display: none;
+		width: ;
+	}
+
+	.klein tbody {
+		display: block;
+		width: 100%;
+	}
 
 
-
-.klein thead {
-	display: none;
-	width: ;
-}
-
- .klein tbody {
- 	display: block;
- 	width: 100%;
- }
-
-
-.klein td, .klein th {
+	.klein td, .klein th {
 	padding-right: 10px;
+	}
+
+	table {
+	  border: 0;
+	}
+
+	table thead {
+	  display: none;
+	}
+
+	table tr {
+	  xmargin-bottom: 10px;
+	  display: block;
+	  border-top: 2px solid #ddd;
+	}
+
+	table td {
+	  display: block;
+	  text-align: right;
+	  font-size: 13px;
+	  border-bottom: 1px dotted #ccc;
+	}
+
+	table td:last-child {
+	  border-bottom: 0;
+	}
+
+	table td:before {
+	  content: attr(data-label);
+	  float: left;
+	  text-transform: uppercase;
+	  font-weight: bold;
+	}
 }
-
-    table {
-      border: 0;
-    }
-
-    table thead {
-      display: none;
-    }
-
-    table tr {
-      xmargin-bottom: 10px;
-      display: block;
-      border-top: 2px solid #ddd;
-    }
-
-    table td {
-      display: block;
-      text-align: right;
-      font-size: 13px;
-      border-bottom: 1px dotted #ccc;
-    }
-
-    table td:last-child {
-      border-bottom: 0;
-    }
-
-    table td:before {
-      content: attr(data-label);
-      float: left;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
 
 
 
@@ -451,34 +426,6 @@ button {
 	padding: 1em 2em;
 	font-size: 1em;
 }
-
-
-/*
-.offerte-header	{
-	width: 90%;
-	margin: 5%;
-	background-color: red;
-	float: none;
-}
-
-.offerte-header img {
-	width: 49%;
-	margin: 0;
-	padding: 0;
-	float: right;
-}
-
-
-#offerte ul {
-	margin: 0;
-	padding: 0;
-	width: 25%;
-	display: inline-block; 
-	list-style-type: none;
-	float: left;
-}
-
-*/
 
 .offerte-header {
 	margin: 5%;
@@ -496,9 +443,6 @@ button {
 }
 
 
-
-
-
 @media (min-width: 600px) {
 
 	.offerte-header ul {
@@ -512,11 +456,6 @@ button {
 	}
 
 }
-
-
-
-
-
 
 form {
 	max-width: 45em;

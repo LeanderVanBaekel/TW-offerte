@@ -1,65 +1,56 @@
-// Extenties en plugins ed
-
-// Template engine
+// Load Modules
 var express = require('express');
-// router engine
 var router = express.Router();
-// file system engine
 var fs = require('fs');
-
 var path = require('path');
-
 
 // standaard file path
 var filesPath = __dirname + "../public";
 
-
+// variable aanmaken
 var siteData2 = 0;
-
-var loadSiteData2 = function () {
-
-	siteData2 = require("../public/data/data2.json");
-	// console.log("test");
-}
-
+// functie om offerte data uit JSON te laden
+var loadSiteData2 = function () {siteData2 = require("../public/data/data2.json");}
 // data laden
 loadSiteData2();
 
+router.get('/', function (req, res, next) {
+		// inlog check
+	if (req.session.username) {
+		var data = {
+			accountData: siteData2,
+			req: req
+		}
 
+		res.render("./accounts", {data:data});
+	} else {
+		res.redirect("./../login");
+	}
+});
 
-
-
-
-// pagina om offertes toe tevoegen
-router.get('/addAccount', function (req, res) {
+// pagina om account toe tevoegen
+router.get('/addAccount', function (req, res, next) {
 
 	// inlog check
 	if (req.session.username) {
-
 
 		var data = {
 			req: req
 		}
 
-		res.render("./addAccount", {data:data, req:req});
+		res.render("./addAccount", {data:data});
 	} else {
-		res.redirect(req.baseUrl + "/login");
+		res.redirect("./../login");
 	}
 });
 
-router.post('/addAccount', function (req, res) {
-
+router.post('/addAccount', function (req, res, next) {
 
 	var fp = "public/images";
-	console.log(fp);
-
-
 	var image = req.files.image;
 
 	if(image) {
 		var format = path.extname(image);
-		console.log(image);
-		console.log(format);
 		fs.	rename(image.path, fp + "/" + req.body.name + "." + image.extension, function (err) {
 			if(err){ console.log("ojee"); }
 		});	
@@ -70,151 +61,56 @@ router.post('/addAccount', function (req, res) {
 		"p": req.body.password
 	}
 
-
 	var w = [];
-	var b = 0;
-	for(b = 0; b != siteData2.length; b++){
-		var q = siteData2[b];
-			if(q) {
-			w.push(q.u);
-		}
+	for(var b = 0; b != siteData2.length; b++){
+		w.push(siteData2[b].u);
 	}
-	console.log(w);
 	var c = w.indexOf(newData.u);
-	console.log(c);
 	if(c == -1) {
 		siteData2.push(newData);
 	} else {
-
 		var w = [];
-		var b = 0;
-		for(b = 0; b != siteData2.length; b++){
-			var q = siteData2[b];
-			if(q) {
-				if(q.u == newData.u) {
-
-					siteData2[b] = newData;
-
-					console.log(b);
-				
-				}
+		for(var b = 0; b != siteData2.length; b++){
+			if(siteData2[b].u == newData.u) {
+				siteData2[b] = newData;				
 			}
 		}
-
 	}
 
-
-
 	fs.writeFile("public/data/data2.json", JSON.stringify(siteData2, null, '\t'), function(err) {
-	    if(err) {
-	        console.log(err);
-	    } else {
-	        console.log("The file was saved!");
-	    }
+	    if(err) {console.log(err);}
 	}); 
-
-
 	res.redirect(req.baseUrl);
 });
 
+router.get('/remove/account/:index', function (req, res, next) {
+	if (req.session.username) {
 
+		var index = req.params.index;
+		var w = [];
+		for(var b = 0; b != siteData2.length; b++){
+			w.push(siteData2[b].u);
+		}
+		var u = w.indexOf(index);
+		if (u > -1) {
+			siteData2.splice(u, 1);
+		}
 
+		var fp = "public/images";
+		fs.unlink(fp + "/" + index + ".png", function (err) {
+		  if (err) {console.log("meh")};
+		});
 
+		fs.writeFile("public/data/data2.json", JSON.stringify(siteData2, null, '\t'), function(err) {
+		    if(err) {console.log(err);}
+		}); 
 
-
-
-
-
-
+		res.redirect("/accounts");
+	} else {
+		res.redirect("./../login");
+	}
+});
 
 // export de routers
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
