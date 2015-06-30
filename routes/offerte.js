@@ -89,7 +89,8 @@ router.post('/', function (req, res, next) {
 		req: req
 	}
 
-	res.render("./offerte", {data:data});
+	// res.render("./offerte", {data:data});
+	res.redirect("/offerte/?offerte=" + req.query.offerte + "#offerte");
 }); 
 
 // export de routers
